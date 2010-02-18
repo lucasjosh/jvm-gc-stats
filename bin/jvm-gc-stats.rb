@@ -52,7 +52,7 @@ opts.each do |opt, arg|
   when '-f'
     $filename = arg
   when '-s'
-    $tail_sleep_secs = arg
+    $tail_sleep_secs = arg.to_i
   when '-d'
     $debug = true
   when '-w'
