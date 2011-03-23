@@ -4,61 +4,6 @@
 require 'getoptlong'
 
 
-<<<<<<< HEAD:bin/jvm-gc-stats.rb
-def usage
-  puts "jvm-gc-stats.rb: Tails a jvm logfile and reports its entries "
-  puts
-  puts "usage: jvm-gc-stats.rb [options]"
-  puts "options:"
-  puts "    -n              say what I would report, but don't report it"
-  puts "    -P <prefix>     optional prefix for ganglia names"
-  puts "    -f <file>       gc logfile to use. defaults to a file named stdout"
-  puts "    -s seconds      sleep time in seconds waiting for new log lines"
-  puts "    -d              turn on verbose debug output"
-  puts "    -w              read the whole file from the beginning rather than tail"
-  puts
-end
-
-$filename = "stdout"
-$report_to_ganglia = true
-$ganglia_prefix = ''
-$stat_timeout = 86400
-$tail_sleep_secs = 60
-$debug = false
-$tail = true
-
-opts = GetoptLong.new(
-  [ '--help', GetoptLong::NO_ARGUMENT ],
-  [ '-h', GetoptLong::NO_ARGUMENT ],
-  [ '-n', GetoptLong::NO_ARGUMENT ],
-  [ '-P', GetoptLong::OPTIONAL_ARGUMENT ],
-  [ '-f', GetoptLong::OPTIONAL_ARGUMENT ],
-  [ '-s', GetoptLong::OPTIONAL_ARGUMENT ],
-  [ '-d', GetoptLong::OPTIONAL_ARGUMENT ],
-  [ '-w', GetoptLong::OPTIONAL_ARGUMENT ]
-  )
-
-opts.each do |opt, arg|
-  case opt
-  when '--help'
-    usage
-    exit 0
-  when '-h'
-    usage
-    exit 0
-  when '-n'
-    $report_to_ganglia = false
-  when '-P'
-    $ganglia_prefix = arg
-  when '-f'
-    $filename = arg
-  when '-s'
-    $tail_sleep_secs = arg.to_i
-  when '-d'
-    $debug = true
-  when '-w'
-    $tail = false
-=======
 # If you wish to change the report method, simply open this class, make your changes, and
 # instantiate it. You may also extend it if that's your jam.
 #
@@ -75,7 +20,6 @@ class JvmGcStats
     puts "    -d              turn on verbose debug output"
     puts "    -w              read the whole file from the beginning rather than tail"
     puts
->>>>>>> 9151820b5ab49148dd5ef364dd7dd33298ecc7ba:bin/jvm-gc-stats.rb
   end
 
   # Initializing the class will process stdin for command-line args and start processing.
